@@ -1,0 +1,1788 @@
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}img{max-width:100%}a:focus-visible{outline:2px solid #356df5;outline-offset:5px}
+/* Exact Kodeit landing-page system, scoped to the public root page. */
+.kodeit-landing {
+  --landing-ink: #111316;
+  --landing-muted: #64686f;
+  --landing-line: rgba(17, 19, 22, 0.1);
+  --landing-blue: #356df5;
+  --landing-paper: #f7f7f4;
+  --landing-white: #ffffff;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--landing-paper);
+  color: var(--landing-ink);
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+body:has(.kodeit-landing) {
+  background: var(--landing-paper);
+}
+
+body:has(.kodeit-landing)::before,
+body:has(.kodeit-landing) .app-shell::after {
+  display: none;
+}
+
+body:has(.kodeit-landing) .static-control,
+body:has(.kodeit-landing) a {
+  font: inherit;
+}
+
+body:has(.kodeit-landing) .static-control {
+  color: inherit;
+}
+
+body:has(.kodeit-landing) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body:has(.kodeit-landing) ::selection {
+  color: white;
+  background: var(--landing-blue);
+}
+
+.kodeit-landing .site-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 20;
+  padding: 22px clamp(20px, 4vw, 64px);
+}
+
+.kodeit-landing .nav-shell {
+  width: min(1240px, 100%);
+  height: 60px;
+  margin: 0 auto;
+  padding: 8px 9px 8px 20px;
+  border: 1px solid rgba(255,255,255,.86);
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  background: rgba(255,255,255,.66);
+  box-shadow: 0 12px 40px rgba(23,28,36,.06), inset 0 0 0 1px rgba(17,19,22,.025);
+  backdrop-filter: blur(22px) saturate(1.25);
+}
+
+.kodeit-landing .wordmark,
+.kodeit-landing .mini-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 630;
+  letter-spacing: -.045em;
+}
+
+.kodeit-landing .wordmark {
+  width: max-content;
+  font-size: 21px;
+}
+
+.kodeit-landing .mark {
+  position: relative;
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  overflow: hidden;
+  border-radius: 7px;
+  background: var(--landing-ink);
+}
+
+.kodeit-landing .mark i {
+  position: absolute;
+  right: 5px;
+  top: 9px;
+  display: block;
+  width: 9px;
+  height: 2.5px;
+  border-radius: 3px;
+  background: white;
+  transform-origin: 100% 50%;
+}
+
+.kodeit-landing .mark i:first-child {
+  transform: rotate(-43deg);
+}
+
+.kodeit-landing .mark i:last-child {
+  transform: rotate(43deg);
+}
+
+.kodeit-landing .mark.small {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+}
+
+.kodeit-landing .mark.small i {
+  right: 4px;
+  top: 8px;
+  width: 8px;
+}
+
+.kodeit-landing .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  color: #45494f;
+  font-size: 13px;
+  font-weight: 520;
+}
+
+.kodeit-landing .nav-links a {
+  padding: 8px 0;
+  transition: color .2s ease;
+}
+
+.kodeit-landing .nav-links a:hover {
+  color: var(--landing-ink);
+}
+
+.kodeit-landing .nav-cta {
+  justify-self: end;
+  display: inline-flex;
+  height: 42px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 17px;
+  border-radius: 13px;
+  background: var(--landing-ink);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 8px 16px rgba(17,19,22,.14);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.kodeit-landing .nav-cta svg,
+.kodeit-landing .landing-button svg {
+  width: 17px;
+  height: 17px;
+  transition: transform .2s ease;
+}
+
+.kodeit-landing .nav-cta:hover,
+.kodeit-landing .button-primary:hover {
+  transform: translateY(-2px);
+  background: #202328;
+  box-shadow: 0 11px 24px rgba(17,19,22,.19);
+}
+
+.kodeit-landing .nav-cta:hover svg,
+.kodeit-landing .landing-button:hover svg {
+  transform: translate(2px,-2px);
+}
+
+.kodeit-landing .hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: clamp(150px, 17vh, 190px) 24px 74px;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(255,255,255,.94) 0 19%, transparent 46%),
+    linear-gradient(180deg, #f8f8f5 0%, #f5f6f4 70%, #f0f2f3 100%);
+}
+
+.kodeit-landing .hero::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -620px;
+  width: 900px;
+  height: 900px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(53,109,245,.12);
+  border-radius: 50%;
+  box-shadow: 0 0 150px rgba(53,109,245,.07);
+}
+
+.kodeit-landing .hero-glow {
+  position: absolute;
+  left: 50%;
+  top: 150px;
+  width: 520px;
+  height: 240px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(53,109,245,.08);
+  filter: blur(100px);
+}
+
+.kodeit-landing .hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 0 auto 66px;
+  text-align: center;
+}
+
+.kodeit-landing .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #555b63;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.kodeit-landing .eyebrow span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--landing-blue);
+  box-shadow: 0 0 0 5px rgba(53,109,245,.11);
+}
+
+.kodeit-landing .hero h1 {
+  max-width: 980px;
+  margin: 22px auto;
+  font-size: clamp(54px, 7.7vw, 102px);
+  line-height: .93;
+  font-weight: 615;
+  letter-spacing: -.075em;
+}
+
+.kodeit-landing .hero h1 em {
+  color: #7a7e85;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -.065em;
+}
+
+.kodeit-landing .hero-copy > p {
+  max-width: 690px;
+  margin: 0 auto;
+  color: var(--landing-muted);
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.62;
+  letter-spacing: -.016em;
+}
+
+.kodeit-landing .hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 31px;
+}
+
+.kodeit-landing .landing-button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 620;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.kodeit-landing .button-primary {
+  background: var(--landing-ink);
+  color: white;
+  box-shadow: 0 8px 20px rgba(17,19,22,.14);
+}
+
+.kodeit-landing .button-quiet {
+  border: 1px solid rgba(17,19,22,.09);
+  background: rgba(255,255,255,.7);
+  box-shadow: inset 0 1px rgba(255,255,255,.8);
+}
+
+.kodeit-landing .button-quiet:hover {
+  transform: translateY(-2px);
+  background: white;
+  box-shadow: 0 8px 20px rgba(17,19,22,.07);
+}
+
+.kodeit-landing .trust-notes {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin: 27px 0 0;
+  padding: 0;
+  list-style: none;
+  color: #777b81;
+  font-size: 11px;
+  font-weight: 540;
+  letter-spacing: .02em;
+}
+
+.kodeit-landing .trust-notes span {
+  margin-right: 5px;
+  color: var(--landing-blue);
+}
+
+.kodeit-landing .product-stage {
+  position: relative;
+  width: min(1150px, 91vw);
+  margin: 0 auto;
+  perspective: 1800px;
+}
+
+.kodeit-landing .app-frame {
+  position: relative;
+  z-index: 2;
+  min-height: 552px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.78);
+  border-radius: 29px;
+  background: rgba(249,250,251,.89);
+  box-shadow: 0 45px 100px rgba(28,35,46,.16), 0 12px 28px rgba(28,35,46,.08), inset 0 0 0 1px rgba(20,24,30,.06);
+  transform: rotateX(2deg);
+  transform-origin: center top;
+  backdrop-filter: blur(25px);
+}
+
+.kodeit-landing .app-topbar {
+  display: grid;
+  height: 62px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(17,19,22,.08);
+  background: rgba(255,255,255,.75);
+}
+
+.kodeit-landing .mini-wordmark {
+  font-size: 15px;
+}
+
+.kodeit-landing .app-context {
+  color: #898d93;
+  font-size: 11px;
+}
+
+.kodeit-landing .app-context span {
+  margin: 0 7px;
+  color: #c1c4c8;
+}
+
+.kodeit-landing .avatar {
+  justify-self: end;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e7e8e6;
+  color: #4f5358;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.kodeit-landing .app-body {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  min-height: 489px;
+}
+
+.kodeit-landing .app-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 25px 14px 18px;
+  border-right: 1px solid rgba(17,19,22,.075);
+  background: rgba(248,248,246,.7);
+}
+
+.kodeit-landing .app-sidebar .static-control {
+  display: flex;
+  height: 38px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #72767d;
+  font-size: 11px;
+  font-weight: 520;
+  text-align: left;
+}
+
+.kodeit-landing .app-sidebar .side-active {
+  background: white;
+  color: var(--landing-ink);
+  box-shadow: 0 4px 16px rgba(17,19,22,.055), inset 0 0 0 1px rgba(17,19,22,.04);
+}
+
+.kodeit-landing .side-icon {
+  display: inline-grid;
+  width: 16px;
+  place-items: center;
+  font-size: 14px;
+}
+
+.kodeit-landing .app-sidebar b {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+  place-items: center;
+  border-radius: 7px;
+  background: #eef1f8;
+  color: var(--landing-blue);
+  font-size: 9px;
+}
+
+.kodeit-landing .sidebar-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 13px 8px;
+  color: #8b8f94;
+  font-size: 9px;
+}
+
+.kodeit-landing .pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #42a670;
+  box-shadow: 0 0 0 4px rgba(66,166,112,.11);
+}
+
+.kodeit-landing .workspace {
+  min-width: 0;
+  padding: 34px 33px;
+  background: linear-gradient(145deg, rgba(255,255,255,.8), rgba(244,246,247,.68));
+}
+
+.kodeit-landing .workspace-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.kodeit-landing .workspace-heading span,
+.kodeit-landing .readiness span {
+  display: block;
+  margin-bottom: 5px;
+  color: #92969d;
+  font-size: 10px;
+}
+
+.kodeit-landing .workspace-heading h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 590;
+  letter-spacing: -.045em;
+}
+
+.kodeit-landing .readiness {
+  min-width: 116px;
+  padding: 10px 12px;
+  border-left: 1px solid rgba(17,19,22,.1);
+}
+
+.kodeit-landing .readiness strong {
+  font-size: 17px;
+  font-weight: 620;
+}
+
+.kodeit-landing .workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(310px, 1.05fr) minmax(250px, .95fr);
+  gap: 14px;
+}
+
+.kodeit-landing .transactions-card,
+.kodeit-landing .clarity-card {
+  min-width: 0;
+  height: 336px;
+  border: 1px solid rgba(17,19,22,.075);
+  border-radius: 17px;
+  background: rgba(255,255,255,.84);
+  box-shadow: 0 8px 30px rgba(17,19,22,.045), inset 0 1px white;
+}
+
+.kodeit-landing .card-heading {
+  display: flex;
+  height: 69px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 19px;
+  border-bottom: 1px solid rgba(17,19,22,.07);
+}
+
+.kodeit-landing .card-heading span {
+  display: block;
+  margin-bottom: 4px;
+  color: #999da3;
+  font-size: 9px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.kodeit-landing .card-heading strong {
+  display: block;
+  font-size: 12px;
+}
+
+.kodeit-landing .card-heading .static-control {
+  border: 0;
+  background: transparent;
+  color: #a2a5aa;
+  letter-spacing: 2px;
+}
+
+.kodeit-landing .transaction-list {
+  padding: 7px;
+}
+
+.kodeit-landing .transaction-row {
+  display: grid;
+  width: 100%;
+  min-height: 80px;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  gap: 11px;
+  padding: 11px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.kodeit-landing .transaction-row:hover {
+  background: rgba(244,246,248,.78);
+}
+
+.kodeit-landing .transaction-row.selected {
+  transform: translateX(3px);
+  background: white;
+  box-shadow: 0 5px 18px rgba(17,19,22,.07), inset 0 0 0 1px rgba(17,19,22,.055);
+}
+
+.kodeit-landing .merchant-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 11px;
+  background: #24272c;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.kodeit-landing .merchant-1 {
+  background: #ed7e3d;
+}
+
+.kodeit-landing .merchant-2 {
+  background: #7167e8;
+}
+
+.kodeit-landing .merchant-copy,
+.kodeit-landing .transaction-meta {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.kodeit-landing .merchant-copy strong,
+.kodeit-landing .transaction-meta strong {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.kodeit-landing .merchant-copy small,
+.kodeit-landing .transaction-meta small {
+  color: #979ba1;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.kodeit-landing .transaction-meta {
+  align-items: flex-end;
+}
+
+.kodeit-landing .transaction-meta .status-ready {
+  color: #438860;
+}
+
+.kodeit-landing .transaction-meta .status-review {
+  color: #c17b2d;
+}
+
+.kodeit-landing .clarity-card {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.kodeit-landing .clarity-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #a0a4aa;
+  font-family: "Geist Mono", monospace;
+  font-size: 8px;
+  letter-spacing: .06em;
+}
+
+.kodeit-landing .clarity-top .confidence {
+  color: #4772d1;
+}
+
+.kodeit-landing .clarity-merchant {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 20px 0 15px;
+  border-bottom: 1px solid rgba(17,19,22,.07);
+}
+
+.kodeit-landing .clarity-merchant small,
+.kodeit-landing .clarity-merchant strong {
+  display: block;
+}
+
+.kodeit-landing .clarity-merchant small {
+  margin-bottom: 4px;
+  color: #a0a4aa;
+  font-size: 8px;
+}
+
+.kodeit-landing .clarity-merchant strong {
+  font-size: 13px;
+}
+
+.kodeit-landing .decision-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(17,19,22,.06);
+  font-size: 9px;
+}
+
+.kodeit-landing .decision-line span {
+  color: #969aa0;
+}
+
+.kodeit-landing .decision-line strong {
+  font-size: 9px;
+  font-weight: 610;
+  text-align: right;
+}
+
+.kodeit-landing .reason-box {
+  display: flex;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 11px;
+  background: #f4f6fb;
+  color: #6a6f78;
+}
+
+.kodeit-landing .reason-spark {
+  color: var(--landing-blue);
+  font-size: 11px;
+}
+
+.kodeit-landing .reason-box p {
+  margin: 0;
+  font-size: 8px;
+  line-height: 1.55;
+}
+
+.kodeit-landing .reason-box strong {
+  display: block;
+  margin-bottom: 2px;
+  color: #474b52;
+  font-size: 9px;
+}
+
+.kodeit-landing .approve-button {
+  display: flex;
+  height: 35px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 0 12px;
+  border: 1px solid rgba(17,19,22,.09);
+  border-radius: 9px;
+  background: white;
+  color: var(--landing-ink);
+  font-size: 9px;
+  font-weight: 620;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.kodeit-landing .approve-button:hover {
+  transform: translateY(-1px);
+  background: #f8f9fa;
+}
+
+.kodeit-landing .ambient-orb {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+.kodeit-landing .orb-one {
+  left: -90px;
+  top: -50px;
+  width: 210px;
+  height: 210px;
+  background: rgba(133,163,246,.2);
+  box-shadow: 0 0 100px rgba(53,109,245,.18);
+}
+
+.kodeit-landing .orb-two {
+  right: -100px;
+  bottom: -40px;
+  width: 260px;
+  height: 260px;
+  background: rgba(225,218,199,.58);
+  box-shadow: 0 0 90px rgba(195,175,132,.22);
+}
+
+.kodeit-landing .float-chip {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  min-width: 208px;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 14px;
+  border: 1px solid rgba(255,255,255,.86);
+  border-radius: 15px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 14px 35px rgba(17,19,22,.13), inset 0 0 0 1px rgba(17,19,22,.035);
+  backdrop-filter: blur(20px);
+  animation: landing-float 6s ease-in-out infinite;
+}
+
+.kodeit-landing .float-chip-left {
+  left: -48px;
+  top: 170px;
+}
+
+.kodeit-landing .float-chip-right {
+  right: -54px;
+  bottom: 44px;
+  animation-delay: -3s;
+}
+
+.kodeit-landing .chip-icon {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border-radius: 9px;
+  background: #eef2fb;
+  color: var(--landing-blue);
+  font-size: 13px;
+}
+
+.kodeit-landing .float-chip div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.kodeit-landing .float-chip small {
+  color: #93979d;
+  font-size: 8px;
+}
+
+.kodeit-landing .float-chip strong {
+  font-size: 10px;
+}
+
+.kodeit-landing .chip-check {
+  margin-left: auto;
+  color: #46956a;
+  font-size: 11px;
+}
+
+.kodeit-landing .section-shell {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.kodeit-landing .automation-section {
+  position: relative;
+  padding: 132px 0 144px;
+  background: #fbfbf9;
+}
+
+.kodeit-landing .automation-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(17,19,22,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,19,22,.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 78%, transparent);
+}
+
+.kodeit-landing .section-intro {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: end;
+  gap: 70px;
+  margin-bottom: 76px;
+}
+
+.kodeit-landing .section-kicker,
+.kodeit-landing .dark-kicker {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--landing-blue);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.kodeit-landing .section-intro h2,
+.kodeit-landing .trust-heading h2 {
+  margin: 0;
+  font-size: clamp(48px, 6.2vw, 78px);
+  line-height: .98;
+  font-weight: 610;
+  letter-spacing: -.065em;
+}
+
+.kodeit-landing .section-intro h2 em,
+.kodeit-landing .trust-heading h2 em {
+  color: #898c90;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -.055em;
+}
+
+.kodeit-landing .section-intro > p {
+  max-width: 480px;
+  margin: 0 0 5px;
+  color: #6e7278;
+  font-size: 17px;
+  line-height: 1.65;
+  letter-spacing: -.012em;
+}
+
+.kodeit-landing .automation-experience {
+  position: relative;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 560px;
+  overflow: hidden;
+  border: 1px solid rgba(17,19,22,.09);
+  border-radius: 28px;
+  background: white;
+  box-shadow: 0 30px 70px rgba(32,38,46,.08), inset 0 1px white;
+}
+
+.kodeit-landing .step-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 22px;
+  border-right: 1px solid rgba(17,19,22,.075);
+  background: #f7f7f5;
+}
+
+.kodeit-landing .step-nav .static-control {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 72px;
+  grid-template-columns: 32px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: #8c9095;
+  cursor: pointer;
+  text-align: left;
+  transition: color .25s ease, background .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.kodeit-landing .step-nav .static-control:hover {
+  background: rgba(255,255,255,.55);
+  color: var(--landing-ink);
+}
+
+.kodeit-landing .step-nav .static-control.active {
+  transform: translateX(3px);
+  background: white;
+  color: var(--landing-ink);
+  box-shadow: 0 8px 24px rgba(17,19,22,.065), inset 0 0 0 1px rgba(17,19,22,.045);
+}
+
+.kodeit-landing .step-nav .static-control span {
+  font-family: "Geist Mono", monospace;
+  font-size: 9px;
+}
+
+.kodeit-landing .step-nav .static-control strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.kodeit-landing .step-nav .static-control i {
+  font-style: normal;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: .25s ease;
+}
+
+.kodeit-landing .step-nav .static-control.active i {
+  color: var(--landing-blue);
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.kodeit-landing .automation-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-width: 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f2f4f7 58%, #eef2f8 100%);
+}
+
+.kodeit-landing .signal-field {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border-right: 1px solid rgba(17,19,22,.07);
+  background: radial-gradient(circle at 50% 50%, rgba(53,109,245,.12), transparent 42%);
+}
+
+.kodeit-landing .signal-field::before,
+.kodeit-landing .signal-field::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 1px solid rgba(53,109,245,.12);
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.kodeit-landing .signal-field::before {
+  width: 300px;
+  height: 300px;
+}
+
+.kodeit-landing .signal-field::after {
+  width: 460px;
+  height: 460px;
+}
+
+.kodeit-landing .kodeit-core {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  width: 150px;
+  height: 150px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(255,255,255,.86);
+  border-radius: 50%;
+  background: rgba(255,255,255,.8);
+  box-shadow: 0 24px 50px rgba(53,109,245,.15), inset 0 0 0 1px rgba(53,109,245,.06);
+  backdrop-filter: blur(18px);
+}
+
+.kodeit-landing .kodeit-core small {
+  color: #72777e;
+  font-size: 8px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.kodeit-landing .core-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+}
+
+.kodeit-landing .core-mark i {
+  right: 8px;
+  top: 15px;
+  width: 14px;
+  height: 3px;
+}
+
+.kodeit-landing .source-pill {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  min-width: 117px;
+  height: 43px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid rgba(17,19,22,.08);
+  border-radius: 12px;
+  background: rgba(255,255,255,.87);
+  box-shadow: 0 10px 24px rgba(17,19,22,.07);
+  color: #5f646b;
+  font-size: 9px;
+  font-weight: 590;
+  backdrop-filter: blur(12px);
+}
+
+.kodeit-landing .source-pill span {
+  display: grid;
+  width: 23px;
+  height: 23px;
+  place-items: center;
+  border-radius: 7px;
+  background: #edf2fe;
+  color: var(--landing-blue);
+}
+
+.kodeit-landing .source-bank {
+  left: 7%;
+  top: 21%;
+}
+
+.kodeit-landing .source-doc {
+  right: 6%;
+  top: 25%;
+}
+
+.kodeit-landing .source-rule {
+  left: 12%;
+  bottom: 19%;
+}
+
+.kodeit-landing .signal-line {
+  position: absolute;
+  z-index: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(53,109,245,.35), transparent);
+  transform-origin: left center;
+}
+
+.kodeit-landing .line-one {
+  left: 23%;
+  top: 31%;
+  width: 190px;
+  transform: rotate(25deg);
+}
+
+.kodeit-landing .line-two {
+  right: 18%;
+  top: 35%;
+  width: 180px;
+  transform: rotate(155deg);
+}
+
+.kodeit-landing .line-three {
+  left: 27%;
+  bottom: 28%;
+  width: 180px;
+  transform: rotate(-32deg);
+}
+
+.kodeit-landing .step-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(38px, 5vw, 70px);
+  animation: landing-detail-in .45s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.kodeit-landing .step-number {
+  color: var(--landing-blue);
+  font-family: "Geist Mono", monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.kodeit-landing .step-detail h3 {
+  margin: 24px 0 17px;
+  font-size: clamp(31px, 3.5vw, 47px);
+  line-height: 1.04;
+  font-weight: 590;
+  letter-spacing: -.055em;
+}
+
+.kodeit-landing .step-detail > p {
+  margin: 0;
+  color: #73777e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.kodeit-landing .step-result {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 52px;
+  padding-top: 21px;
+  border-top: 1px solid rgba(17,19,22,.09);
+}
+
+.kodeit-landing .step-result small,
+.kodeit-landing .step-result strong {
+  display: block;
+}
+
+.kodeit-landing .step-result small {
+  margin-bottom: 7px;
+  color: #999da3;
+  font-size: 9px;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.kodeit-landing .step-result strong {
+  font-size: 18px;
+  letter-spacing: -.035em;
+}
+
+.kodeit-landing .step-result > span {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: inset 0 0 0 1px rgba(17,19,22,.07);
+  color: #777b81;
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+.kodeit-landing .step-result > span i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #4cab72;
+  box-shadow: 0 0 0 3px rgba(76,171,114,.1);
+}
+
+.kodeit-landing .trust-section {
+  position: relative;
+  overflow: hidden;
+  padding: 134px 0 35px;
+  background: #101216;
+  color: #f5f5f2;
+}
+
+.kodeit-landing .trust-section::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -720px;
+  width: 1000px;
+  height: 1000px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(107,145,255,.11);
+  border-radius: 50%;
+  box-shadow: 0 0 160px rgba(53,109,245,.08);
+}
+
+.kodeit-landing .trust-aura {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  width: 520px;
+  height: 180px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(53,109,245,.13);
+  filter: blur(100px);
+}
+
+.kodeit-landing .trust-shell {
+  position: relative;
+  z-index: 2;
+}
+
+.kodeit-landing .dark-kicker {
+  color: #7498ff;
+}
+
+.kodeit-landing .trust-heading {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: end;
+  gap: 70px;
+  padding-bottom: 74px;
+}
+
+.kodeit-landing .trust-heading h2 {
+  color: #f6f6f2;
+}
+
+.kodeit-landing .trust-heading h2 em {
+  color: #8f9299;
+}
+
+.kodeit-landing .trust-heading > p {
+  max-width: 450px;
+  margin: 0 0 5px;
+  color: #8f939b;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.kodeit-landing .principle-list {
+  border-top: 1px solid rgba(255,255,255,.11);
+}
+
+.kodeit-landing .principle-list article {
+  display: grid;
+  min-height: 152px;
+  grid-template-columns: 70px 1fr auto;
+  align-items: center;
+  gap: 22px;
+  border-bottom: 1px solid rgba(255,255,255,.11);
+  transition: background .25s ease, padding .25s ease;
+}
+
+.kodeit-landing .principle-list article:hover {
+  padding: 0 20px;
+  background: rgba(255,255,255,.025);
+}
+
+.kodeit-landing .principle-number {
+  align-self: start;
+  margin-top: 39px;
+  color: #62666e;
+  font-family: "Geist Mono", monospace;
+  font-size: 9px;
+}
+
+.kodeit-landing .principle-list h3 {
+  margin: 0 0 9px;
+  font-size: 22px;
+  font-weight: 550;
+  letter-spacing: -.035em;
+}
+
+.kodeit-landing .principle-list p {
+  max-width: 590px;
+  margin: 0;
+  color: #858991;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.kodeit-landing .principle-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+  color: #7e9fff;
+  font-size: 13px;
+}
+
+.kodeit-landing .closing-card {
+  position: relative;
+  display: grid;
+  min-height: 545px;
+  place-items: center;
+  margin-top: 142px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 30px;
+  background: radial-gradient(circle at 50% 46%, rgba(53,109,245,.2), rgba(255,255,255,.025) 39%, transparent 67%), #15181d;
+  box-shadow: inset 0 1px rgba(255,255,255,.05);
+  text-align: center;
+}
+
+.kodeit-landing .closing-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 650px;
+  height: 650px;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(116,152,255,.12);
+  border-radius: 50%;
+}
+
+.kodeit-landing .closing-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(116,152,255,.17);
+  border-radius: 50%;
+  animation: landing-breathe 5s ease-in-out infinite;
+}
+
+.kodeit-landing .closing-mark {
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  width: 38px;
+  height: 38px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255,255,255,.18);
+  background: #1f56df;
+  box-shadow: 0 0 34px rgba(53,109,245,.42);
+}
+
+.kodeit-landing .closing-mark i {
+  right: 9px;
+  top: 16px;
+  width: 15px;
+  height: 3px;
+}
+
+.kodeit-landing .closing-copy {
+  position: relative;
+  z-index: 2;
+  padding: 70px 24px;
+}
+
+.kodeit-landing .closing-copy > span {
+  color: #86a4ff;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.kodeit-landing .closing-copy h2 {
+  margin: 20px 0 16px;
+  font-size: clamp(42px, 5.8vw, 68px);
+  line-height: 1.02;
+  font-weight: 580;
+  letter-spacing: -.06em;
+}
+
+.kodeit-landing .closing-copy p {
+  max-width: 510px;
+  margin: 0 auto 27px;
+  color: #92969e;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.kodeit-landing .button-light {
+  background: #f5f5f2;
+  color: #14161a;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+}
+
+.kodeit-landing .button-light:hover {
+  transform: translateY(-2px);
+  background: white;
+  box-shadow: 0 14px 32px rgba(0,0,0,.3);
+}
+
+.kodeit-landing footer {
+  display: grid;
+  min-height: 110px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  color: #6f737a;
+  font-size: 10px;
+}
+
+.kodeit-landing footer .wordmark {
+  color: #f2f2ef;
+  font-size: 17px;
+}
+
+.kodeit-landing footer .wordmark .mark {
+  background: #f2f2ef;
+}
+
+.kodeit-landing footer .wordmark .mark i {
+  background: #111316;
+}
+
+.kodeit-landing footer p {
+  margin: 0;
+}
+
+.kodeit-landing footer > span {
+  justify-self: end;
+}
+
+.kodeit-landing .reveal {
+  animation: landing-rise .8s cubic-bezier(.2,.75,.2,1) both;
+}
+
+.kodeit-landing .reveal-late {
+  animation: landing-rise 1s .15s cubic-bezier(.2,.75,.2,1) both;
+}
+
+@keyframes landing-detail-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes landing-breathe {
+  0%,100% { transform: translate(-50%,-50%) scale(1); opacity: .72; }
+  50% { transform: translate(-50%,-50%) scale(1.035); opacity: 1; }
+}
+
+@keyframes landing-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes landing-float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (max-width: 900px) {
+  .kodeit-landing .nav-shell {
+    grid-template-columns: 1fr auto;
+  }
+
+  .kodeit-landing .nav-links {
+    display: none;
+  }
+
+  .kodeit-landing .nav-cta {
+    font-size: 12px;
+  }
+
+  .kodeit-landing .hero {
+    padding-top: 145px;
+  }
+
+  .kodeit-landing .hero-copy {
+    margin-bottom: 52px;
+  }
+
+  .kodeit-landing .product-stage {
+    width: 1120px;
+    max-width: none;
+    transform: translateX(calc((100vw - 1120px) / 2));
+  }
+
+  .kodeit-landing .float-chip-left {
+    left: 120px;
+  }
+
+  .kodeit-landing .float-chip-right {
+    right: 120px;
+  }
+
+  .kodeit-landing .section-intro,
+  .kodeit-landing .trust-heading {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .kodeit-landing .section-intro > p,
+  .kodeit-landing .trust-heading > p {
+    max-width: 600px;
+  }
+
+  .kodeit-landing .automation-experience {
+    grid-template-columns: 1fr;
+  }
+
+  .kodeit-landing .step-nav {
+    flex-direction: row;
+    padding: 12px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17,19,22,.075);
+  }
+
+  .kodeit-landing .step-nav .static-control {
+    grid-template-columns: 24px 1fr;
+  }
+
+  .kodeit-landing .step-nav .static-control i {
+    display: none;
+  }
+
+  .kodeit-landing .automation-visual,
+  .kodeit-landing .signal-field {
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 620px) {
+  .kodeit-landing .site-header {
+    padding: 14px;
+  }
+
+  .kodeit-landing .nav-shell {
+    height: 54px;
+    padding-left: 14px;
+    border-radius: 16px;
+  }
+
+  .kodeit-landing .wordmark {
+    font-size: 19px;
+  }
+
+  .kodeit-landing .mark {
+    width: 19px;
+    height: 19px;
+  }
+
+  .kodeit-landing .nav-cta {
+    height: 38px;
+    padding: 0 12px;
+  }
+
+  .kodeit-landing .nav-cta svg {
+    display: none;
+  }
+
+  .kodeit-landing .hero {
+    padding: 132px 16px 54px;
+  }
+
+  .kodeit-landing .hero h1 {
+    margin-top: 19px;
+    font-size: clamp(49px, 15.5vw, 70px);
+  }
+
+  .kodeit-landing .hero-copy > p {
+    max-width: 540px;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .kodeit-landing .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 330px;
+    margin: 28px auto 0;
+  }
+
+  .kodeit-landing .landing-button {
+    width: 100%;
+  }
+
+  .kodeit-landing .trust-notes {
+    flex-wrap: wrap;
+    gap: 11px;
+    font-size: 9px;
+  }
+
+  .kodeit-landing .product-stage {
+    width: 870px;
+    margin-bottom: -95px;
+    transform: translateX(calc((100vw - 870px) / 2)) scale(.82);
+    transform-origin: center top;
+  }
+
+  .kodeit-landing .app-frame {
+    min-height: 520px;
+  }
+
+  .kodeit-landing .app-body {
+    grid-template-columns: 150px 1fr;
+  }
+
+  .kodeit-landing .workspace {
+    padding: 28px 24px;
+  }
+
+  .kodeit-landing .float-chip-left {
+    left: 70px;
+  }
+
+  .kodeit-landing .float-chip-right {
+    right: 70px;
+  }
+
+  .kodeit-landing .section-shell {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .kodeit-landing .automation-section {
+    padding: 94px 0 96px;
+  }
+
+  .kodeit-landing .section-intro {
+    margin-bottom: 48px;
+  }
+
+  .kodeit-landing .section-intro h2,
+  .kodeit-landing .trust-heading h2 {
+    font-size: 47px;
+  }
+
+  .kodeit-landing .section-intro > p,
+  .kodeit-landing .trust-heading > p {
+    font-size: 15px;
+  }
+
+  .kodeit-landing .automation-experience {
+    min-height: auto;
+    border-radius: 22px;
+  }
+
+  .kodeit-landing .step-nav {
+    overflow-x: auto;
+  }
+
+  .kodeit-landing .step-nav .static-control {
+    min-width: 130px;
+    height: 59px;
+    padding: 0 11px;
+  }
+
+  .kodeit-landing .automation-visual {
+    grid-template-columns: 1fr;
+  }
+
+  .kodeit-landing .signal-field {
+    min-height: 390px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17,19,22,.07);
+  }
+
+  .kodeit-landing .source-bank {
+    left: 3%;
+  }
+
+  .kodeit-landing .source-doc {
+    right: 3%;
+  }
+
+  .kodeit-landing .source-rule {
+    left: 5%;
+  }
+
+  .kodeit-landing .step-detail {
+    padding: 36px 27px 40px;
+  }
+
+  .kodeit-landing .step-result {
+    margin-top: 36px;
+  }
+
+  .kodeit-landing .trust-section {
+    padding-top: 95px;
+  }
+
+  .kodeit-landing .trust-heading {
+    padding-bottom: 52px;
+  }
+
+  .kodeit-landing .principle-list article {
+    min-height: 165px;
+    grid-template-columns: 35px 1fr;
+    gap: 12px;
+  }
+
+  .kodeit-landing .principle-list article:hover {
+    padding: 0;
+    background: transparent;
+  }
+
+  .kodeit-landing .principle-number {
+    margin-top: 45px;
+  }
+
+  .kodeit-landing .principle-icon {
+    display: none;
+  }
+
+  .kodeit-landing .principle-list h3 {
+    font-size: 19px;
+  }
+
+  .kodeit-landing .principle-list p {
+    font-size: 12px;
+  }
+
+  .kodeit-landing .closing-card {
+    min-height: 530px;
+    margin-top: 94px;
+    border-radius: 24px;
+  }
+
+  .kodeit-landing .closing-copy h2 {
+    font-size: 43px;
+  }
+
+  .kodeit-landing .closing-orbit {
+    width: 310px;
+    height: 310px;
+  }
+
+  .kodeit-landing .closing-card::before {
+    width: 480px;
+    height: 480px;
+  }
+
+  .kodeit-landing footer {
+    min-height: 150px;
+    grid-template-columns: 1fr auto;
+  }
+
+  .kodeit-landing footer p {
+    display: none;
+  }
+}
+
+
+/* Static export: no motion, disabled controls, dark logo tiles, or hidden content. */
+.kodeit-landing *, .kodeit-landing *::before, .kodeit-landing *::after { animation: none !important; transition: none !important; }
+.kodeit-landing .reveal, .kodeit-landing .reveal-late { opacity: 1; transform: none; }
+.kodeit-landing .nav-shell { grid-template-columns: 1fr auto; padding-right: 24px; }
+.kodeit-landing .trust-notes { margin-top: 30px; }
+.kodeit-landing .static-control { cursor: default; pointer-events: none; }
+.kodeit-landing .transaction-row { font: inherit; color: inherit; cursor: pointer; }
+.kodeit-landing .transaction-row:focus-visible { outline: 2px solid #356df5; outline-offset: -2px; }
+.kodeit-landing img.mark { display: block; width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.kodeit-landing .mini-wordmark img.mark { width: 24px; height: 24px; }
+.kodeit-landing img.core-mark { width: 52px; height: 52px; }
+.kodeit-landing img.closing-mark { width: 52px; height: 52px; top: -60px; }
+.kodeit-landing .preview-notice { position: relative; z-index: 4; margin: 0 0 18px; color: #555b63; font-size: 12px; text-align: center; line-height: 1.6; }
+.skip-link { position: absolute; top: 4px; left: 24px; z-index: 99; transform: translateY(-150%); padding: 8px; background: white; color: #111316; }
+.skip-link:focus { transform: none; }
+@media(max-width:560px) { .kodeit-landing .nav-shell { padding: 8px 14px; } .kodeit-landing .nav-links { gap: 16px; font-size: 12px; } }
+@media(max-width:700px) {
+  .kodeit-landing .product-stage { width: 100%; transform: none; margin: 0 auto; perspective: none; }
+  .kodeit-landing .app-frame { transform: none; min-height: 0; }
+  .kodeit-landing .app-body { grid-template-columns: 1fr; min-height: 0; }
+  .kodeit-landing .app-sidebar, .kodeit-landing .app-context, .kodeit-landing .float-chip { display: none; }
+  .kodeit-landing .app-topbar { grid-template-columns: 1fr auto; }
+  .kodeit-landing .workspace { padding: 24px 14px; min-width: 0; }
+  .kodeit-landing .workspace-heading { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .kodeit-landing .workspace-grid { grid-template-columns: minmax(0, 1fr); }
+  .kodeit-landing .step-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 8px; gap: 4px; overflow: visible; }
+  .kodeit-landing .step-nav .static-control { display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 0; gap: 5px; padding: 8px 2px; font-size: 11px; }
+  .kodeit-landing .closing-copy { padding-top: 70px; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } }
